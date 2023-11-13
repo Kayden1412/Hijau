@@ -1,0 +1,42 @@
+name: Hijau
+
+on:   
+  schedule:
+  - cron: "*/10 * * * *" # https://crontab.guru/#*/30_*_*_*_*
+  
+jobs:
+  auto_commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3      
+        with:
+         persist-credentials: false
+         fetch-depth: 0
+
+      - name: Modify last update
+        run: |
+          d=`date '+%Y-%m-%dT%H:%M:%SZ'`
+          echo $d > README.md
+          
+      - name: Commit changes
+        run: |
+          git config --local user.email "toarumajutsu 4869@gmail.com"
+          git config --local user.name "kayden1412"
+          git add -A
+          
+          arr[0]="chore(bot): 🤑"
+          arr[1]="chore(bot): 🥱"
+          arr[2]="chore(bot): 😋"
+          arr[3]="chore(bot): 😎"
+          arr[4]="chore(bot):  🤓"
+
+          rand=$[$RANDOM % ${#arr[@]}]
+          
+          git commit -m "${arr[$rand]}"
+          
+      - name: GitHub Push
+        uses: ad-m/github-push-action@master
+        with:
+          force-with-lease: true
+          directory: "."
+          github_token: ${{ secrets.GITHUB_TOKEN }}
