@@ -17,18 +17,11 @@ jobs:
         git config user.name "Kayden1412"
         git config user.email "toarumajutsu4869@gmail.com"
 
-    - name: Auto Commit
-      run: |
-        echo "Auto commit message" > temp.txt
-        git add temp.txt
-        git commit -m "Auto commit"
-        git push
-
     - name: Update Readme
       run: |
-        echo "Latest Action Date: $(date)" > readme.md
-        git add readme.md
-        git commit -m "Update readme with latest action date" || echo "Commit failed"
+        echo "Terakhir diupdate: $(date)" > README.md
+        git add README.md
+        git commit -m "Update READMR with latest action date" || echo "Commit failed"
         git push || echo "Push failed"
 
     - name: Debugging Info
