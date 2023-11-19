@@ -19,9 +19,9 @@ jobs:
 
     - name: Update Readme
       run: |
-        echo "$(date) > README.md"
-        git add README.md
-        git commit -m "Print last updated time to README" || echo "Commit failed"
+        echo "$(date)" > LAST_UPDATED"
+        git add LAST_UPDATED
+        git commit -m "Print last updated time to LAST_UPDATED" || echo "Commit failed"
         git push || echo "Push failed"
 
     - name: Debugging Info
