@@ -19,7 +19,7 @@ jobs:
 
     - name: Update Readme
       run: |
-        echo "$(date '+%A, %d %B %Y %H.%M') > README.md"
+        echo "$(date) > README.md"
         git add README.md
         git commit -m "Print last updated time to README" || echo "Commit failed"
         git push || echo "Push failed"
