@@ -1,4 +1,4 @@
-name: Auto Commit and Update Readme
+name: Hijau
 
 on:
   schedule:
@@ -19,9 +19,9 @@ jobs:
 
     - name: Update Readme
       run: |
-        echo "$(date '+%A, %d %B %Y %H.%M') > LAST_UPDATED"
-        git add LAST_UPDATED
-        git commit -m "Print last updated time to LAST_UPDATED file" || echo "Commit failed"
+        echo "$(date '+%A, %d %B %Y %H.%M') > README.md"
+        git add README.md
+        git commit -m "Print last updated time to README" || echo "Commit failed"
         git push || echo "Push failed"
 
     - name: Debugging Info
