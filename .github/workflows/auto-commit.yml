@@ -2,7 +2,7 @@ name: Auto Commit and Update Readme
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  # Runs every 15 minutes
+    - cron: '*/20 * * * *'  # Runs every 15 minutes
 
 jobs:
   auto-commit:
@@ -19,9 +19,9 @@ jobs:
 
     - name: Update Readme
       run: |
-        echo "Terakhir diupdate: $(date)" > README.md
-        git add README.md
-        git commit -m "Update READMR with latest action date" || echo "Commit failed"
+        echo "$(date '+%A, %d %B %Y %H.%M') > LAST_UPDATED"
+        git add LAST_UPDATED
+        git commit -m "Print last updated time to LAST_UPDATED file" || echo "Commit failed"
         git push || echo "Push failed"
 
     - name: Debugging Info
