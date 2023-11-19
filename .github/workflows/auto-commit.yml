@@ -19,7 +19,7 @@ jobs:
 
     - name: Update Readme
       run: |
-        echo "$(date)" > LAST_UPDATED"
+        echo "$(date)" > LAST_UPDATED
         git add LAST_UPDATED
         git commit -m "Print last updated time to LAST_UPDATED" || echo "Commit failed"
         git push || echo "Push failed"
