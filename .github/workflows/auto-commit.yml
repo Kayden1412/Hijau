@@ -21,8 +21,7 @@ jobs:
       run: |
         echo "$(date)" > LAST_UPDATED
         git add LAST_UPDATED
-        git commit -m "$(curl -s http://whatthecommit.com/index.txt | tr -d '\n')" 
-        || echo "Commit failed"
+        git commit -m "Reboisasi🌲 $(date)" || echo "Commit failed"
         git push || echo "Push failed"
 
     - name: Debugging Info
