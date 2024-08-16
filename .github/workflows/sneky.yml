@@ -30,4 +30,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'mek snek'
-          file_pattern: 'res/*.svg res/*.gif
+          file_pattern: 'res/*.svg res/*.gif'
